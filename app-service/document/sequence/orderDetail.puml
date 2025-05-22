@@ -1,0 +1,17 @@
+@startuml
+actor User
+participant "Order List UI" as UI
+participant "System" as Server
+database "Database" as DB
+
+User -> UI : Chọn đơn hàng cần xem
+UI -> Server : Gửi yêu cầu lấy chi tiết đơn hàng
+activate Server
+Server -> DB : Truy vấn chi tiết đơn hàng
+activate DB
+DB --> Server : Trả thông tin chi tiết
+deactivate DB
+Server -> UI : Hiển thị chi tiết đơn hàng
+UI -> User : Xem chi tiết đơn hàng
+deactivate Server
+@enduml

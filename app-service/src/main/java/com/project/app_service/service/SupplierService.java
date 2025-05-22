@@ -1,0 +1,22 @@
+package com.project.app_service.service;
+
+import com.project.app_service.model.entity.SupplierEntity;
+import com.project.app_service.model.request.SupplierRequest;
+import com.project.app_service.model.response.PageResponse;
+import com.project.app_service.model.response.SupplierResponse;
+import java.util.List;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
+
+public interface SupplierService {
+  SupplierResponse create(SupplierRequest supplierRequest) throws Exception;
+
+  SupplierResponse update(SupplierRequest supplierRequest) throws Exception;
+
+  PageResponse<List<SupplierResponse>> search(Specification<SupplierEntity> spec, Pageable pageable)
+      throws Exception;
+
+  SupplierResponse getById(String id) throws Exception;
+
+  String delete(String id) throws Exception;
+}

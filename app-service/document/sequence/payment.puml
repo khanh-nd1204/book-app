@@ -1,0 +1,43 @@
+@startuml
+actor Customer
+participant "Payment UI" as UI
+participant "System" as Server
+database "Database" as DB
+participant "VNPay Gateway" as VNPay
+
+Customer -> UI : Chọn thanh toán đơn hàng
+UI -> Server : Gửi yêu cầu thanh toán qua VNPay
+activate Server
+Server -> DB : Kiểm tra đơn hàng
+activate DB
+DB --> Server : Đơn hàng hợp lệ/không hợp lệ
+deactivate DB
+
+alt Đơn hàng hợp lệ
+    Server -> VNPay : Khởi tạo giao dịch thanh toán VNPay
+    activate VNPay
+    VNPay --> Customer : Điều hướng đến giao diện VNPay
+    deactivate VNPay
+
+    Customer -> VNPay : Thực hiện thanh toán
+    VNPay --> Server : Trả kết quả thanh toán
+    activate Server
+
+    alt Thanh toán thành công
+        Server -> DB : Cập nhật trạng thái đơn hàng "Đã thanh toán"
+        activate DB
+        DB --> Server : Cập nhật thành công
+        deactivate DB
+        Server -> UI : Thông báo thanh toán thành công
+        UI -> Customer : Hiển thị xác nhận
+    else Thanh toán thất bại
+        Server -> UI : Thông báo lỗi thanh toán
+        UI -> Customer : Hiển thị thất bại
+    end
+    deactivate Server
+else Đơn hàng không hợp lệ
+    Server -> UI : Thông báo lỗi đơn hàng
+    UI -> Customer : Hiển thị lỗi
+end
+deactivate Server
+@enduml

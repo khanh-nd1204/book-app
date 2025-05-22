@@ -1,0 +1,47 @@
+@startuml
+
+class email_logs {
+    - id: string
+    - recipient: string
+    - subject: string
+    - template: string
+    - status: int
+    - validity: date
+    - created_at: date
+    - updated_at: date
+    + findByStatus()
+    + findByValidity()
+}
+
+class invalidated_tokens {
+    - id: string
+    - expired_at: date
+}
+
+class logs {
+    - id: string
+    - action_key: string
+    - description_key: string
+    - params: string
+    - created_at: date
+    - created_by: string
+    + get()
+    + create()
+    + search()
+}
+
+class notifications {
+    - id: string
+    - user_id: string
+    - content: string
+    - type: int
+    - is_read: int
+    - created_at: date
+    - updated_at: date
+    + get()
+    + create()
+}
+
+users "1" -- "*" notifications
+
+@enduml

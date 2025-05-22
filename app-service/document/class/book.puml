@@ -1,0 +1,89 @@
+@startuml
+left to right direction
+
+class publishers {
+    - id: string
+    - name: string
+    - address: string
+    - note: string
+    - created_at: date
+    - created_by: string
+    - updated_at: date
+    - updated_by: string
+    + get()
+    + create()
+    + update()
+    + findById()
+    + search()
+}
+
+class books {
+    - sku: string 
+    - title: string 
+    - isbn: string
+    - description: string
+    - authors: string
+    - form: int
+    - page_number: int
+    - publish_year: int
+    - selling_price: double
+    - discount: int
+    - final_price: double
+    - import_price: double
+    - profit: int
+    - sold_quantity: int
+    - stock_quantity: int
+    - weight: int
+    - status: int
+    - publisher_id: string
+    - created_at: date
+    - created_by: string
+    - updated_at: date
+    - updated_by: string
+    + get()
+    + create()
+    + update()
+    + search()
+    + findById()
+    + findByTitle()
+    + findByIsbn()
+    + import()
+    + export()
+}
+
+class categories {
+    - id: string 
+    - name: string 
+    - symbol: string
+    - created_at: date
+    - created_by: string
+    - updated_at: date
+    - updated_by: string
+    - file_id: string
+    + get()
+    + create()
+    + update()
+    + search()
+    + findById()
+}
+
+class book_categories {
+    - book_sku: string
+    - category_id: string
+}
+
+class files {
+    - id: string 
+    - url: string
+    - folder: string
+    - book_sku: string
+    - category_id: string
+}
+
+books "*" -- "*" book_categories
+publishers "1" -- "*" books
+categories "*" -- "*" book_categories
+books "0..*" -- "0..1" files
+categories "0..*" -- "0..1" files
+
+@enduml

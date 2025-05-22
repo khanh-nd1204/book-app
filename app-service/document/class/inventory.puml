@@ -1,0 +1,84 @@
+@startuml
+left to right direction
+
+class suppliers {
+    - id: string
+    - name: string
+    - address: string
+    - tax_code: string
+    - note: string
+    - created_at: date
+    - created_by: string
+    - updated_at: date
+    - updated_by: string
+    + get()
+    + create()
+    + update()
+    + findById()
+    + search()
+}
+
+class book_imports {
+    - id: string
+    - supplier_id: string
+    - total_cost: double
+    - note: string
+    - reason: string
+    - status: int
+    - created_at: date
+    - created_by: string
+    - updated_at: date
+    - updated_by: string
+    + get()
+    + create()
+    + update()
+    + findById()
+    + search()
+    + export()
+}
+
+class book_exports {
+    - id: string
+    - supplier_id: string
+    - total_cost: double
+    - note: string
+    - reason: string
+    - status: int
+    - created_at: date
+    - created_by: string
+    - updated_at: date
+    - updated_by: string
+    + get()
+    + create()
+    + update()
+    + findById()
+    + search()
+    + export()
+}
+
+class book_import_items {
+    - id: string
+    - book_import_id: string
+    - book_sku: string
+    - quantity: int
+    - unit_price: double
+    - total_cost: double
+}
+
+class book_export_items {
+    - id: string
+    - book_export_id: string
+    - book_sku: string
+    - quantity: int
+    - unit_price: double
+    - total_cost: double
+}
+
+suppliers "1" -- "*" book_imports
+suppliers "1" -- "*" book_exports
+book_imports "*" -- "*" book_import_items
+book_exports "*" -- "*" book_export_items
+books "*" -- "*" book_import_items
+books "*" -- "*" book_export_items
+
+@enduml

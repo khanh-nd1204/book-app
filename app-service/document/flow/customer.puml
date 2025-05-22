@@ -1,0 +1,17 @@
+@startuml
+|Khách hàng|
+start
+:Cung cấp thông tin cá nhân;
+|Nhân viên|
+:Ghi nhận vào hệ thống;
+|Hệ thống|
+:Lưu lịch sử mua hàng;
+:Gửi thông báo;
+|Khách hàng|
+:Nhận thông báo;
+if (Đổi/trả hàng?) then (Có)
+    |Nhân viên|
+  :Xử lý theo chính sách;
+endif
+stop
+@enduml

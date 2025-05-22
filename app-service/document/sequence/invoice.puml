@@ -1,0 +1,17 @@
+@startuml
+actor Employee
+participant "Invoice Export UI" as UI
+participant "System" as Server
+database "Database" as DB
+
+Employee -> UI : Chọn đơn hàng đã xác nhận
+UI -> Server : Yêu cầu tạo hóa đơn
+activate Server
+Server -> DB : Lấy thông tin đơn hàng
+activate DB
+DB --> Server : Dữ liệu đơn hàng
+deactivate DB
+Server -> UI : Tạo file hóa đơn PDF
+UI -> Employee : Tải file hóa đơn
+deactivate Server
+@enduml

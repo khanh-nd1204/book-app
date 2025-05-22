@@ -1,0 +1,70 @@
+@startuml
+left to right direction
+
+class carts {
+    - id: string
+    - total_price: double
+    - user_id: string
+    + get()
+    + create()
+    + update()
+}
+
+class cart_items {
+    - id: string
+    - cart_id: string
+    - book_sku: string
+    - quantity: int
+    - unit_price: double
+    - total_price: double
+}
+
+class orders {
+    - id: string
+    - total_price: double
+    - name: string
+    - address: string
+    - phone: string
+    - email: string
+    - method: int
+    - status: int
+    - invoice: int
+    - note: string
+    - reason: string
+    - is_payment: int
+    - vnp_txn_ref: string
+    - created_at: date
+    - created_by: string
+    - updated_by: string
+    - canceled_at: date
+    - confirmed_at: date
+    - delivered_at: date
+    - rejected_at: date
+    + get()
+    + create()
+    + update()
+    + search()
+    + findById()
+    + findByCreatedBy()
+    + cancel()
+    + confirm()
+    + reject()
+}
+
+class order_items {
+    - id: string
+    - order_id: string
+    - book_sku: string
+    - quantity: int
+    - unit_price: double
+    - total_price: double
+}
+
+users "1" -- "0..1" carts
+users "1" -- "*" orders
+carts "*" -- "*" cart_items
+orders "*" -- "*" order_items
+books "*" -- "*" cart_items
+books "*" -- "*" order_items
+
+@enduml

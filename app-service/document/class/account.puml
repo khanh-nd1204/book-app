@@ -1,0 +1,78 @@
+@startuml
+left to right direction
+
+class roles {
+    - id: string
+    - name: string
+    - description: string
+    - created_at: date
+    - created_by: string
+    - updated_at: date
+    - updated_by: string
+    + get()
+    + create()
+    + update()
+    + delete()
+    + search()
+    + findById()
+    + findByName()
+}
+
+class users {
+    - id: string
+    - email: string
+    - password: string
+    - name: string
+    - active: int
+    - address: string
+    - phone: string
+    - otp: int
+    - otp_validity: date
+    - refresh_token: string
+    - google_id: string
+    - role_id: string
+    - cart_id: string
+    - created_at: date
+    - created_by: string
+    - updated_at: date
+    - updated_by: string
+    + get()
+    + create()
+    + update()
+    + search()
+    + findById()
+    + findByEmail()
+    + findByPhone()
+    + import()
+    + export()
+}
+
+class permissions {
+    - id: string
+    - name: string
+    - module: string
+    - method: string
+    - api_path: string
+    - description: string
+    - created_at: date
+    - created_by: string
+    - updated_at: date
+    - updated_by: string
+    + get()
+    + create()
+    + update()
+    + delete()
+    + search()
+    + findById()
+}
+
+class role_permissions {
+    - role_id: string
+    - permission_id: string
+}
+
+roles "1" -- "*" users
+roles "1" -- "*" role_permissions
+permissions "1" -- "*" role_permissions
+
+@enduml

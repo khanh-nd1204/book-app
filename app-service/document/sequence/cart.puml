@@ -1,0 +1,29 @@
+@startuml
+actor Customer
+participant "Product Detail UI" as UI
+participant "System" as Server
+database "Database" as DB
+
+Customer -> UI : Xem chi tiết sản phẩm
+UI -> Customer : Hiển thị thông tin sản phẩm
+Customer -> UI : Nhấn "Thêm vào giỏ hàng"
+UI -> Server : Yêu cầu thêm sản phẩm
+activate Server
+Server -> DB : Kiểm tra tồn kho sản phẩm
+activate DB
+DB --> Server : Tồn kho/hết hàng
+deactivate DB
+
+alt Còn tồn kho
+    Server -> DB : Lưu sản phẩm vào giỏ hàng
+    activate DB
+    DB --> Server : Thêm thành công
+    deactivate DB
+    Server -> UI : Thông báo thêm vào giỏ thành công
+    UI -> Customer : Hiển thị thông báo
+else Hết hàng
+    Server -> UI : Thông báo hết hàng
+    UI -> Customer : Hiển thị lỗi
+end
+deactivate Server
+@enduml

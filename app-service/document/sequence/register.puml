@@ -1,0 +1,33 @@
+@startuml
+actor User
+participant "Register UI" as UI
+participant "System" as Server
+database "Database" as DB
+
+User -> UI : Mở trang đăng ký
+UI -> User : Hiển thị form đăng ký
+User -> UI : Nhập thông tin
+UI -> Server : Gửi yêu cầu đăng ký
+activate Server
+Server -> DB : Kiểm tra email/số điện thoại
+activate DB
+DB --> Server : Kết quả kiểm tra
+deactivate DB
+
+alt Email/SĐT chưa tồn tại
+    Server -> UI : Gửi OTP xác thực
+    UI -> User : Yêu cầu nhập mã OTP
+    User -> UI : Nhập mã OTP
+    UI -> Server : Gửi OTP xác nhận
+    Server -> DB : Tạo tài khoản mới
+    activate DB
+    DB --> Server : Xác nhận tạo tài khoản thành công
+    deactivate DB
+    Server -> UI : Thông báo đăng ký thành công
+    UI -> User : Chuyển về trang đăng nhập
+else Email/SĐT đã tồn tại
+    Server -> UI : Thông báo lỗi Email/SĐT tồn tại
+    UI -> User : Hiển thị yêu cầu nhập lại
+end
+deactivate Server
+@enduml

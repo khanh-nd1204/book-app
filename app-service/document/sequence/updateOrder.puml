@@ -1,0 +1,25 @@
+@startuml
+actor Employee
+participant "Order Management UI" as UI
+participant "System" as Server
+database "Database" as DB
+
+Employee -> UI : Chọn đơn hàng
+UI -> Server : Gửi yêu cầu lấy chi tiết
+activate Server
+Server -> DB : Truy vấn đơn hàng
+activate DB
+DB --> Server : Thông tin đơn hàng
+deactivate DB
+Server -> UI : Hiển thị form chỉnh sửa
+
+Employee -> UI : Chỉnh sửa thông tin
+UI -> Server : Gửi yêu cầu cập nhật đơn hàng
+Server -> DB : Cập nhật thông tin đơn hàng
+activate DB
+DB --> Server : Cập nhật thành công
+deactivate DB
+Server -> UI : Thông báo cập nhật thành công
+UI -> Employee : Hiển thị xác nhận
+deactivate Server
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+actor Employee
+participant "Order Detail UI" as UI
+participant "System" as Server
+database "Database" as DB
+
+Employee -> UI : Chọn hành động (Xác nhận hoặc Từ chối)
+UI -> Server : Gửi yêu cầu cập nhật trạng thái
+activate Server
+
+alt Xác nhận đơn hàng
+    Server -> DB : Cập nhật trạng thái "Xác nhận"
+    activate DB
+    DB --> Server : Cập nhật thành công
+    deactivate DB
+    Server -> UI : Thông báo xác nhận thành công
+    UI -> Employee : Hiển thị kết quả
+else Từ chối đơn hàng
+    Server -> DB : Cập nhật trạng thái "Từ chối"
+    activate DB
+    DB --> Server : Cập nhật thành công
+    deactivate DB
+    Server -> UI : Thông báo từ chối thành công
+    UI -> Employee : Hiển thị kết quả
+end
+deactivate Server
+@enduml

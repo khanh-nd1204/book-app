@@ -1,0 +1,20 @@
+@startuml
+|Chủ cửa hàng|
+start
+:Tìm nhà cung cấp;
+:So sánh giá, chính sách;
+:Xác định số lượng nhập;
+|Nhà cung cấp|
+:Giao sách;
+|Chủ cửa hàng|
+:Kiểm tra chất lượng;
+if (Sách đạt yêu cầu?) then (Không)
+    :Yêu cầu đổi/trả;
+else (Có)
+    |Hệ thống|
+    :Cập nhật vào kho;
+    |Chủ cửa hàng|
+    :Lưu chứng từ;
+endif
+stop
+@enduml

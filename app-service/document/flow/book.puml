@@ -1,0 +1,35 @@
+@startuml
+
+|Nhân viên|
+
+start
+:Kiểm tra chất lượng sách;
+
+if (Sách lỗi?) then (Có)
+    :Loại bỏ sách lỗi;
+else (Không)
+    :Nhập thông tin sách;
+    |Hệ thống|
+    :Lưu sách vào hệ thống;
+endif
+
+|Nhân viên|
+:Sắp xếp sách theo danh mục;
+:Khi nhập/xuất, ghi nhận số lượng;
+
+|Hệ thống|
+:Cập nhật kho;
+
+|Nhân viên|
+:Kiểm kê định kỳ;
+
+|Hệ thống|
+:Đối chiếu dữ liệu kho;
+if (Sai lệch?) then (Có)
+  |Nhân viên|
+  :Điều chỉnh kho;
+endif
+
+:Thanh lý sách cũ nếu cần;
+stop
+@enduml

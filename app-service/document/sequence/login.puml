@@ -1,0 +1,25 @@
+@startuml
+actor User
+participant "Login UI" as UI
+participant "System" as Server
+database "Database" as DB
+
+User -> UI : Mở giao diện đăng nhập
+UI -> User : Hiển thị form nhập
+User -> UI : Nhập email, mật khẩu
+UI -> Server : Gửi yêu cầu đăng nhập
+activate Server
+Server -> DB : Truy vấn thông tin tài khoản
+activate DB
+DB --> Server : Thông tin tài khoản
+deactivate DB
+
+alt Đăng nhập thành công
+    Server -> UI : Thông báo đăng nhập thành công
+    UI -> User : Chuyển đến trang chính
+else Đăng nhập thất bại
+    Server -> UI : Thông báo lỗi đăng nhập
+    UI -> User : Hiển thị yêu cầu nhập lại
+end
+deactivate Server
+@enduml

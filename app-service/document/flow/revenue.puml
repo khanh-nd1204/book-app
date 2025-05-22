@@ -1,0 +1,12 @@
+@startuml
+|Hệ thống|
+start
+:Ghi nhận doanh thu hàng ngày;
+|Chủ cửa hàng|
+:Tính toán lợi nhuận, chi phí;
+|Hệ thống|
+:Thống kê sách bán chạy;
+|Chủ cửa hàng|
+:Ra quyết định nhập hàng, điều chỉnh giá;
+stop
+@enduml

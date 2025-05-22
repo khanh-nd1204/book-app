@@ -1,0 +1,27 @@
+@startuml
+actor Customer
+participant "Order Detail UI" as UI
+participant "System" as Server
+database "Database" as DB
+
+Customer -> UI : Chọn hủy đơn hàng
+UI -> Server : Gửi yêu cầu hủy đơn
+activate Server
+Server -> DB : Kiểm tra trạng thái đơn hàng
+activate DB
+DB --> Server : Trạng thái đơn hàng
+deactivate DB
+
+alt Đơn hàng chưa xác nhận
+    Server -> DB : Cập nhật trạng thái "Đã hủy"
+    activate DB
+    DB --> Server : Cập nhật thành công
+    deactivate DB
+    Server -> UI : Thông báo hủy thành công
+    UI -> Customer : Hiển thị xác nhận
+else Đơn hàng đã xác nhận/giao
+    Server -> UI : Thông báo không thể hủy
+    UI -> Customer : Hiển thị lỗi
+end
+deactivate Server
+@enduml

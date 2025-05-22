@@ -1,0 +1,170 @@
+{
+    "email": {
+        "required": "Please enter a email!",
+        "invalid": "Invalid email!",
+        "max": "Email must be less than {{max}} characters"
+    },
+    "password": {
+        "required": "Please enter a password!",
+        "length": "Password must be between {{min}} and {{max}} characters",
+        "current_required": "Please enter your current password!",
+        "new_required": "Please enter a new password!"
+    },
+    "otp": {
+        "required": "Please enter the OTP sent via email!",
+        "invalid": "Invalid OTP!"
+    },
+    "name": {
+        "required": "Please enter a name!",
+        "max": "Name must be less than {{max}} characters"
+    },
+    "phone": {
+        "required": "Please enter a phone number!",
+        "invalid": "Invalid phone number!",
+        "length": "Phone number must be {{length}} digits!"
+    },
+    "address": {
+        "required": "Please enter an address!",
+        "max": "Address must be less than {{max}} characters"
+    },
+    "api": {
+        "required": "Please enter an API path!",
+        "max": "API path must be less than {{max}} characters"
+    },
+    "method": {
+        "required": "Please enter a method!",
+        "max": "Method must be less than {{max}} characters"
+    },
+    "module": {
+        "required": "Please enter a module!",
+        "max": "Module must be less than {{max}} characters"
+    },
+    "description": {
+        "required": "Please enter a description!",
+        "max": "Description must be less than {{max}} characters"
+    },
+    "role": {
+        "required": "Please enter a role!"
+    },
+    "nationality": {
+        "required": "Please enter a nationality!",
+        "max": "Nationality must be less than {{max}} characters"
+    },
+    "note": {
+        "required": "Please enter a note!",
+        "max": "Note must be less than {{max}} characters"
+    },
+    "tax_code": {
+        "required": "Please enter a tax code!",
+        "max": "Tax code must be less than {{max}} characters"
+    },
+    "symbol": {
+        "required": "Please enter a symbol!",
+        "max": "Symbol must be less than {{max}} characters"
+    },
+    "title": {
+        "required": "Please enter a title!",
+        "max": "Title must be less than {{max}} characters"
+    },
+    "original_price": {
+        "required": "Please enter an original price!",
+        "invalid": "Invalid original price"
+    },
+    "publish_year": {
+        "required": "Please enter a release year!",
+        "invalid": "Invalid release year"
+    },
+    "stock_quantity": {
+        "required": "Please enter a stock quantity!",
+        "invalid": "Invalid stock quantity"
+    },
+    "sold_quantity": {
+        "required": "Please enter a sold quantity!",
+        "invalid": "Invalid sold quantity"
+    },
+    "discount": {
+        "required": "Please enter a discount percentage!",
+        "invalid": "Invalid discount percentage"
+    },
+    "weight": {
+        "required": "Please enter weight!",
+        "invalid": "Invalid weight"
+    },
+    "page_number": {
+        "required": "Please enter page number!",
+        "invalid": "Invalid page number"
+    },
+    "form": {
+        "required": "Please select form!"
+    },
+    "status": {
+        "required": "Please select status!"
+    },
+    "author": {
+        "required": "Please enter authors!"
+    },
+    "category": {
+        "required": "Please select categories!"
+    },
+    "publisher": {
+        "required": "Please select publisher!"
+    },
+    "supplier": {
+        "required": "Please select supplier!"
+    },
+    "gender": {
+        "required": "Please select gender!"
+    },
+    "isbn": {
+        "length": "ISBN must be {{length}} digits!",
+        "invalid": "Invalid ISBN"
+    },
+    "profit": {
+        "required": "Please enter profit percentage!"
+    },
+    "import_id": {
+        "required": "Please enter the import voucher code!",
+        "max": "The import form code must be less than {{max}} characters"
+    },
+    "import_note": {
+        "required": "Please enter the import reason!",
+        "max": "The import reason must be less than {{max}} characters"
+    },
+    "import_list": {
+        "empty": "The import list is empty!"
+    },
+    "export_id": {
+        "required": "Please enter the export voucher code!",
+        "max": "The export form code must be less than {{max}} characters"
+    },
+    "export_note": {
+        "required": "Please enter the export reason!",
+        "max": "The export reason must be less than {{max}} characters"
+    },
+    "export_list": {
+        "empty": "The export list is empty!"
+    },
+    "cancel_reason": {
+        "required": "Please enter the cancellation reason!",
+        "max": "The cancellation reason must be less than {{max}} characters"
+    },
+    "payment_method": {
+        "required": "Please enter a payment method!"
+    },
+    "invoice": {
+        "required": "Please enter an invoice request!"
+    },
+    "order_status": {
+        "required": "Please enter an order status!"
+    },
+    "reject_reason": {
+        "required": "Please enter a rejection reason!",
+        "max": "Rejection reason must be less than {{max}} characters"
+    },
+    "import_price": {
+        "required": "Please enter import price!"
+    },
+    "category_image": {
+        "required": "Please upload a category image!"
+    }
+}

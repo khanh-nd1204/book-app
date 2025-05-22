@@ -1,0 +1,170 @@
+{
+    "email": {
+        "required": "Vui lòng nhập email!",
+        "invalid": "Email không hợp lệ!",
+        "max": "Email phải ít hơn {{max}} ký tự"
+    },
+    "password": {
+        "required": "Vui lòng nhập mật khẩu!",
+        "length": "Mật khẩu phải từ {{min}} đến {{max}} ký tự",
+        "current_required": "Vui lòng nhập mật khẩu hiện tại!",
+        "new_required": "Vui lòng nhập mật khẩu mới!"
+    },
+    "otp": {
+        "required": "Vui lòng nhập mã OTP được gửi qua mail!",
+        "invalid": "OTP không hợp lệ!"
+    },
+    "name": {
+        "required": "Vui lòng nhập tên!",
+        "max": "Tên phải ít hơn {{max}} ký tự"
+    },
+    "phone": {
+        "required": "Vui lòng nhập số điện thoại!",
+        "invalid": "Số điện thoại không hợp lệ!",
+        "length": "Số điện thoại phải có {{length}} chữ số!"
+    },
+    "address": {
+        "required": "Vui lòng nhập địa chỉ!",
+        "max": "Địa chỉ phải ít hơn {{max}} ký tự"
+    },
+    "api": {
+        "required": "Vui lòng nhập đường dẫn API!",
+        "max": "Đường dẫn API phải ít hơn {{max}} ký tự"
+    },
+    "method": {
+        "required": "Vui lòng nhập phương thức!",
+        "max": "Phương thức phải ít hơn {{max}} ký tự"
+    },
+    "module": {
+        "required": "Vui lòng nhập module!",
+        "max": "Module phải ít hơn {{max}} ký tự"
+    },
+    "description": {
+        "required": "Vui lòng nhập mô tả!",
+        "max": "Mô tả phải ít hơn {{max}} ký tự"
+    },
+    "role": {
+        "required": "'Vui lòng nhập vai trò!"
+    },
+    "nationality": {
+        "required": "Vui lòng nhập quốc tịch!",
+        "max": "Quốc tịch phải ít hơn {{max}} ký tự"
+    },
+    "note": {
+        "required": "Vui lòng nhập ghi chú!",
+        "max": "Ghi chú phải ít hơn {{max}} ký tự"
+    },
+    "tax_code": {
+        "required": "Vui lòng nhập mã số thuế!",
+        "max": "Mã số thuế phải ít hơn {{max}} ký tự"
+    },
+    "symbol": {
+        "required": "Vui lòng nhập ký hiệu!",
+        "max": "Ký hiệu phải ít hơn {{max}} ký tự"
+    },
+    "title": {
+        "required": "Vui lòng nhập nhan đề!",
+        "max": "Nhan đề phải ít hơn {{max}} ký tự"
+    },
+    "original_price": {
+        "required": "Vui lòng nhập giá gốc!",
+        "invalid": "Giá gốc không hợp lệ"
+    },
+    "publish_year": {
+        "required": "Vui lòng nhập năm xuất bản!",
+        "invalid": "Năm xuất bản không hợp lệ"
+    },
+    "stock_quantity": {
+        "required": "Vui lòng nhập số lượng kho!",
+        "invalid": "Số lượng kho không hợp lệ"
+    },
+    "sold_quantity": {
+        "required": "Vui lòng nhập số lượng đã bán!",
+        "invalid": "Số lượng đã bán không hợp lệ"
+    },
+    "discount": {
+        "required": "Vui lòng nhập phần trăm giảm giá!",
+        "invalid": "Phần trăm giảm giá không hợp lệ"
+    },
+    "weight": {
+        "required": "Vui lòng nhập trọng lượng!",
+        "invalid": "Trọng lượng không hợp lệ"
+    },
+    "page_number": {
+        "required": "Vui lòng nhập số trang!",
+        "invalid": "Số trang không hợp lệ"
+    },
+    "form": {
+        "required": "Vui lòng chọn hình thức!"
+    },
+    "status": {
+        "required": "Vui lòng chọn trạng thái!"
+    },
+    "author": {
+        "required": "Vui lòng nhập tác giả!"
+    },
+    "category": {
+        "required": "Vui lòng chọn thể loại!"
+    },
+    "publisher": {
+        "required": "Vui lòng chọn nhà xuất bản!"
+    },
+    "supplier": {
+        "required": "Vui lòng chọn nhà cung cấp!"
+    },
+    "gender": {
+        "required": "Vui lòng chọn giới tính!"
+    },
+    "isbn": {
+        "length": "ISBN phải có {{length}} chữ số!",
+        "invalid": "ISBN không hợp lệ"
+    },
+    "profit": {
+        "required": "Vui lòng nhập phần trăm lợi nhuận!"
+    },
+    "import_id": {
+        "required": "Vui lòng nhập mã phiếu nhập!",
+        "max": "Mã phiếu nhập phải ít hơn {{max}} ký tự"
+    },
+    "import_note": {
+        "required": "Vui lòng nhập lý do nhập!",
+        "max": "Lý do nhập phải ít hơn {{max}} ký tự"
+    },
+    "import_list": {
+        "empty": "Danh sách nhập trống!"
+    },
+    "export_id": {
+        "required": "Vui lòng nhập mã phiếu xuất!",
+        "max": "Mã phiếu xuất phải ít hơn {{max}} ký tự"
+    },
+    "export_note": {
+        "required": "Vui lòng nhập lý do xuất!",
+        "max": "Lý do xuất phải ít hơn {{max}} ký tự"
+    },
+    "export_list": {
+        "empty": "Danh sách xuất trống!"
+    },
+    "cancel_reason": {
+        "required": "Vui lòng nhập lý do hủy!",
+        "max": "Lý do hủy phải ít hơn {{max}} ký tự"
+    },
+    "payment_method": {
+        "required": "Vui lòng nhập phương thức thanh toán!"
+    },
+    "invoice": {
+        "required": "Vui lòng nhập yêu cầu hóa đơn!"
+    },
+    "order_status": {
+        "required": "Vui lòng nhập trạng thái đơn hàng!"
+    },
+    "reject_reason": {
+        "required": "Vui lòng nhập lý do từ chối!",
+        "max": "Lý do từ chối phải ít hơn {{max}} ký tự"
+    },
+    "import_price": {
+        "required": "Vui lòng nhập giá nhập sách!"
+    },
+    "category_image": {
+        "required": "Vui lòng tải lên ảnh thể loại!"
+    }
+}
