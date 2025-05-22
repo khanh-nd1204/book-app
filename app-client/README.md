@@ -11,12 +11,12 @@
 ## 2. Tech Stack
 Dự án sử dụng các công nghệ sau:
 
-- **Vite** – Trình bundler siêu nhanh
+- **Vite**
 - **React 18+**
 - **Ant design** 
 - **Redux Toolkit** 
 - **React Router DOM**
-- **Axios** – Giao tiếp API
+- **Axios**
 - **ESLint + Prettier**
 
 ---
