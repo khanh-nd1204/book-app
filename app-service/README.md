@@ -23,5 +23,6 @@
 
 ### Run application in app-service folder:
 
+```
 $ .\gradlew bootRun
-
+```
