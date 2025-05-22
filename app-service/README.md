@@ -21,7 +21,9 @@
 
 # 3. Build & Run Application
 
-### Run application in app-service folder:
+### Run application in folder:
 
+```
 $ .\gradlew bootRun
+```
 
