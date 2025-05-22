@@ -1,8 +1,56 @@
-# React + Vite
+## 1. Prerequisites
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Đảm bảo bạn đã cài đặt các công cụ sau:
 
-Currently, two official plugins are available:
+- ✅ [Node.js (v18+)](https://nodejs.org/)
+- ✅ [Yarn](https://classic.yarnpkg.com/lang/en/) hoặc [npm](https://www.npmjs.com/)
+- ✅ [VS Code](https://code.visualstudio.com/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## 2. Tech Stack
+Dự án sử dụng các công nghệ sau:
+
+- **Vite** – Trình bundler siêu nhanh
+- **React 18+**
+- **Ant design** 
+- **Redux Toolkit** 
+- **React Router DOM**
+- **Axios** – Giao tiếp API
+- **ESLint + Prettier**
+
+---
+
+## 3. Run & Development
+
+### Cài đặt dependencies
+
+```
+# Dùng yarn
+$ yarn install
+
+# Hoặc dùng npm
+$ npm install
+```
+
+### Khởi chạy ứng dụng
+
+```
+# Dùng yarn
+$ yarn dev
+
+# Hoặc npm
+$ npm run dev
+```
+
+---
+
+## 4. Build Production
+
+```
+# Dùng yarn
+$ yarn build
+
+# Hoặc npm
+$ npm run build
+```
