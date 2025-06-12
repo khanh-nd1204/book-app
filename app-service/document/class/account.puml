@@ -1,6 +1,9 @@
 @startuml
 left to right direction
 
+' Phân biệt các phần logic rõ ràng
+skinparam classAttributeIconSize 0
+
 class roles {
     - id: string
     - name: string
@@ -9,13 +12,13 @@ class roles {
     - created_by: string
     - updated_at: date
     - updated_by: string
-    + get()
-    + create()
-    + update()
-    + delete()
-    + search()
-    + findById()
-    + findByName()
+    + get(): List<roles>
+    + create(role: Role): Role
+    + update(role: Role): Role
+    + delete(id: string): void
+    + search(keyword: string): List<roles>
+    + findById(id: string): Role
+    + findByName(name: string): Role
 }
 
 class users {
@@ -23,7 +26,7 @@ class users {
     - email: string
     - password: string
     - name: string
-    - active: int
+    - active: boolean
     - address: string
     - phone: string
     - otp: int
@@ -36,15 +39,15 @@ class users {
     - created_by: string
     - updated_at: date
     - updated_by: string
-    + get()
-    + create()
-    + update()
-    + search()
-    + findById()
-    + findByEmail()
-    + findByPhone()
-    + import()
-    + export()
+    + get(): List<users>
+    + create(user: User): User
+    + update(user: User): User
+    + search(keyword: string): List<users>
+    + findById(id: string): User
+    + findByEmail(email: string): User
+    + findByPhone(phone: string): User
+    + import(data: File): int
+    + export(): File
 }
 
 class permissions {
@@ -58,12 +61,12 @@ class permissions {
     - created_by: string
     - updated_at: date
     - updated_by: string
-    + get()
-    + create()
-    + update()
-    + delete()
-    + search()
-    + findById()
+    + get(): List<permissions>
+    + create(permission: Permission): Permission
+    + update(permission: Permission): Permission
+    + delete(id: string): void
+    + search(keyword: string): List<permissions>
+    + findById(id: string): Permission
 }
 
 class role_permissions {
@@ -71,8 +74,9 @@ class role_permissions {
     - permission_id: string
 }
 
-roles "1" -- "*" users
-roles "1" -- "*" role_permissions
-permissions "1" -- "*" role_permissions
+' Mối quan hệ aggregation rõ hơn về mặt ý nghĩa
+roles "1" o-- "*" users : assigns
+roles "1" o-- "*" role_permissions : defines
+permissions "1" o-- "*" role_permissions : maps
 
 @enduml

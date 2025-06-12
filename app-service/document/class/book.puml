@@ -1,6 +1,8 @@
 @startuml
 left to right direction
 
+skinparam classAttributeIconSize 0
+
 class publishers {
     - id: string
     - name: string
@@ -10,27 +12,28 @@ class publishers {
     - created_by: string
     - updated_at: date
     - updated_by: string
-    + get()
-    + create()
-    + update()
-    + findById()
-    + search()
+    + get(): List<publishers>
+    + create(publisher: Publisher): Publisher
+    + update(publisher: Publisher): Publisher
+    + delete(id: string): void
+    + findById(id: string): Publisher
+    + search(keyword: string): List<publishers>
 }
 
 class books {
-    - sku: string 
-    - title: string 
+    - sku: string
+    - title: string
     - isbn: string
     - description: string
     - authors: string
-    - form: int
+    - form: string
     - page_number: int
     - publish_year: int
     - selling_price: double
     - discount: int
     - final_price: double
     - import_price: double
-    - profit: int
+    - profit: double
     - sold_quantity: int
     - stock_quantity: int
     - weight: int
@@ -40,31 +43,33 @@ class books {
     - created_by: string
     - updated_at: date
     - updated_by: string
-    + get()
-    + create()
-    + update()
-    + search()
-    + findById()
-    + findByTitle()
-    + findByIsbn()
-    + import()
-    + export()
+    + get(): List<books>
+    + create(book: Book): Book
+    + update(book: Book): Book
+    + delete(sku: string): void
+    + search(keyword: string): List<books>
+    + findById(sku: string): Book
+    + findByTitle(title: string): Book
+    + findByIsbn(isbn: string): Book
+    + import(file: File): int
+    + export(): File
 }
 
 class categories {
-    - id: string 
-    - name: string 
+    - id: string
+    - name: string
     - symbol: string
+    - file_id: string
     - created_at: date
     - created_by: string
     - updated_at: date
     - updated_by: string
-    - file_id: string
-    + get()
-    + create()
-    + update()
-    + search()
-    + findById()
+    + get(): List<categories>
+    + create(category: Category): Category
+    + update(category: Category): Category
+    + delete(id: string): void
+    + search(keyword: string): List<categories>
+    + findById(id: string): Category
 }
 
 class book_categories {
@@ -73,17 +78,20 @@ class book_categories {
 }
 
 class files {
-    - id: string 
+    - id: string
     - url: string
     - folder: string
     - book_sku: string
     - category_id: string
 }
 
-books "*" -- "*" book_categories
-publishers "1" -- "*" books
-categories "*" -- "*" book_categories
-books "0..*" -- "0..1" files
-categories "0..*" -- "0..1" files
+' Mối quan hệ và ràng buộc
+publishers "1" o-- "*" books : publishes
+books "*" o-- "*" categories : categorized in
+books "1" --> "*" book_categories
+categories "1" --> "*" book_categories
+
+books "0..*" o-- "0..1" files : has
+categories "0..*" o-- "0..1" files : describes
 
 @enduml

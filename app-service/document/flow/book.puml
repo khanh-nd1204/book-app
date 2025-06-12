@@ -1,35 +1,28 @@
 @startuml
-
 |Nhân viên|
-
 start
-:Kiểm tra chất lượng sách;
-
-if (Sách lỗi?) then (Có)
-    :Loại bỏ sách lỗi;
-else (Không)
-    :Nhập thông tin sách;
-    |Hệ thống|
-    :Lưu sách vào hệ thống;
-endif
-
-|Nhân viên|
-:Sắp xếp sách theo danh mục;
-:Khi nhập/xuất, ghi nhận số lượng;
-
+:Nhập thông tin sách;
 |Hệ thống|
-:Cập nhật kho;
+:Kiểm tra chất lượng;
+
+if (Sách đạt yêu cầu?) then (Có)
+  :Đưa vào kho;
+  :Cập nhật tồn kho;
+else (Không)
+  :Đánh dấu sách lỗi;
+endif
 
 |Nhân viên|
 :Kiểm kê định kỳ;
-
 |Hệ thống|
-:Đối chiếu dữ liệu kho;
+:Đối chiếu số lượng;
 if (Sai lệch?) then (Có)
   |Nhân viên|
-  :Điều chỉnh kho;
+  :Điều chỉnh dữ liệu;
 endif
-
-:Thanh lý sách cũ nếu cần;
+|Hệ thống|
+:Phân tích bán chạy;
+|Nhân viên|
+:Đề xuất nhập thêm / thanh lý sách;
 stop
 @enduml

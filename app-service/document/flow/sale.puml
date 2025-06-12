@@ -1,29 +1,24 @@
 @startuml
-
 |Khách hàng|
-
 start
-:Chọn sách, gửi đơn hàng;
-
-|Nhân viên|
-:Tiếp nhận và kiểm tra;
-if (Còn hàng?) then (Có)
-  :Tạo hóa đơn;
-  |Khách hàng|
-  :Thanh toán;
+if (Mua tại cửa hàng?) then (Có)
+  :Chọn sách;
   |Nhân viên|
-  :Kiểm tra, đóng gói;
+  :Kiểm tra tồn kho;
+  :Tạo hóa đơn, thanh toán;
   |Hệ thống|
-  :Cập nhật đơn hàng;
-  :Cập nhật kho;
+  :Cập nhật tồn kho & đơn hàng;
+else (Online)
+  :Đặt hàng trên web;
+  |Hệ thống|
+  :Kiểm tra tồn kho;
+  :Xác nhận đơn;
+  |Khách hàng|
+  :Thanh toán online;
   |Nhân viên|
-  if (Đơn online?) then (Có)
-    :Vận chuyển;
-  else (Không)
-    :Giao trực tiếp;
-  endif
-else (Không)
-  :Thông báo hết hàng;
+  :Đóng gói, vận chuyển;
+  |Hệ thống|
+  :Cập nhật tồn kho và trạng thái;
 endif
 stop
 @enduml

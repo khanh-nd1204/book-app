@@ -1,6 +1,8 @@
 @startuml
 left to right direction
 
+skinparam classAttributeIconSize 0
+
 class suppliers {
     - id: string
     - name: string
@@ -11,11 +13,12 @@ class suppliers {
     - created_by: string
     - updated_at: date
     - updated_by: string
-    + get()
-    + create()
-    + update()
-    + findById()
-    + search()
+    + get(): List<suppliers>
+    + create(supplier: Supplier): Supplier
+    + update(supplier: Supplier): Supplier
+    + delete(id: string): void
+    + findById(id: string): Supplier
+    + search(keyword: string): List<suppliers>
 }
 
 class book_imports {
@@ -29,12 +32,12 @@ class book_imports {
     - created_by: string
     - updated_at: date
     - updated_by: string
-    + get()
-    + create()
-    + update()
-    + findById()
-    + search()
-    + export()
+    + get(): List<book_imports>
+    + create(import: BookImport): BookImport
+    + update(import: BookImport): BookImport
+    + findById(id: string): BookImport
+    + search(keyword: string): List<book_imports>
+    + export(): File
 }
 
 class book_exports {
@@ -48,12 +51,12 @@ class book_exports {
     - created_by: string
     - updated_at: date
     - updated_by: string
-    + get()
-    + create()
-    + update()
-    + findById()
-    + search()
-    + export()
+    + get(): List<book_exports>
+    + create(export: BookExport): BookExport
+    + update(export: BookExport): BookExport
+    + findById(id: string): BookExport
+    + search(keyword: string): List<book_exports>
+    + export(): File
 }
 
 class book_import_items {
@@ -74,11 +77,17 @@ class book_export_items {
     - total_cost: double
 }
 
-suppliers "1" -- "*" book_imports
-suppliers "1" -- "*" book_exports
-book_imports "*" -- "*" book_import_items
-book_exports "*" -- "*" book_export_items
-books "*" -- "*" book_import_items
-books "*" -- "*" book_export_items
+class books {
+}
+
+' Các quan hệ logic, có nhãn mô tả
+suppliers "1" o-- "*" book_imports : provides
+suppliers "1" o-- "*" book_exports : receives
+
+book_imports "1" o-- "*" book_import_items : includes
+book_exports "1" o-- "*" book_export_items : includes
+
+books "1" o-- "*" book_import_items : item
+books "1" o-- "*" book_export_items : item
 
 @enduml

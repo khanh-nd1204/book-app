@@ -1,13 +1,15 @@
 @startuml
 left to right direction
 
+skinparam classAttributeIconSize 0
+
 class carts {
     - id: string
     - total_price: double
     - user_id: string
-    + get()
-    + create()
-    + update()
+    + get(userId: string): Cart
+    + create(userId: string): Cart
+    + update(cart: Cart): Cart
 }
 
 class cart_items {
@@ -31,7 +33,7 @@ class orders {
     - invoice: int
     - note: string
     - reason: string
-    - is_payment: int
+    - is_payment: boolean
     - vnp_txn_ref: string
     - created_at: date
     - created_by: string
@@ -40,15 +42,15 @@ class orders {
     - confirmed_at: date
     - delivered_at: date
     - rejected_at: date
-    + get()
-    + create()
-    + update()
-    + search()
-    + findById()
-    + findByCreatedBy()
-    + cancel()
-    + confirm()
-    + reject()
+    + get(): List<orders>
+    + create(order: Order): Order
+    + update(order: Order): Order
+    + search(keyword: string): List<orders>
+    + findById(id: string): Order
+    + findByCreatedBy(userId: string): List<orders>
+    + cancel(id: string): void
+    + confirm(id: string): void
+    + reject(id: string): void
 }
 
 class order_items {
@@ -60,11 +62,21 @@ class order_items {
     - total_price: double
 }
 
-users "1" -- "0..1" carts
-users "1" -- "*" orders
-carts "*" -- "*" cart_items
-orders "*" -- "*" order_items
-books "*" -- "*" cart_items
-books "*" -- "*" order_items
+class users {
+
+}
+
+class books {
+
+}
+
+' Quan hệ rõ ràng với nhãn
+users "1" o-- "0..1" carts : owns
+users "1" o-- "*" orders : places
+carts "1" o-- "*" cart_items : contains
+orders "1" o-- "*" order_items : includes
+
+books "1" o-- "*" cart_items : selected in
+books "1" o-- "*" order_items : purchased in
 
 @enduml

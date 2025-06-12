@@ -9,8 +9,8 @@ class email_logs {
     - validity: date
     - created_at: date
     - updated_at: date
-    + findByStatus()
-    + findByValidity()
+    + findByStatus(status: int): List<email_logs>
+    + findByValidity(validity: date): List<email_logs>
 }
 
 class invalidated_tokens {
@@ -25,9 +25,9 @@ class logs {
     - params: string
     - created_at: date
     - created_by: string
-    + get()
-    + create()
-    + search()
+    + get(id: string): logs
+    + create(log: Log): logs
+    + search(keyword: string): List<logs>
 }
 
 class notifications {
@@ -38,10 +38,20 @@ class notifications {
     - is_read: int
     - created_at: date
     - updated_at: date
-    + get()
-    + create()
+    + get(id: string): notifications
+    + create(notification: Notification): notifications
 }
 
-users "1" -- "*" notifications
+class users {
+
+}
+
+users "1" -- "*" notifications : owns
+
+' Nếu logs có thể ghi lại hành động của user, thêm quan hệ Aggregation:
+users "1" o-- "*" logs : performs
+
+' Nếu email_logs liên quan đến user recipient:
+users "1" o-- "*" email_logs : sends
 
 @enduml
