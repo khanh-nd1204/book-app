@@ -6,8 +6,6 @@
 - ✅ [Yarn](https://classic.yarnpkg.com/lang/en/) hoặc [npm](https://www.npmjs.com/)
 - ✅ [VS Code](https://code.visualstudio.com/)
 
----
-
 ## 2. Tech Stack
 Dự án sử dụng các công nghệ sau:
 
@@ -18,8 +16,6 @@ Dự án sử dụng các công nghệ sau:
 - **React Router DOM**
 - **Axios**
 - **ESLint + Prettier**
-
----
 
 ## 3. Run & Development
 
@@ -42,8 +38,6 @@ $ yarn dev
 # Hoặc npm
 $ npm run dev
 ```
-
----
 
 ## 4. Build Production
 
